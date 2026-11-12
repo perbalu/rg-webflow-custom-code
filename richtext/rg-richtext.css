@@ -1,0 +1,62 @@
+/* These rules apply only to elements created by the shortcode processor. */
+.w-richtext [data-rg-rt-text] {
+  font-size: var(--rg-rt-size, inherit);
+}
+.w-richtext [data-rg-rt-block] {
+  display: flow-root;
+  text-align: var(--rg-rt-align, inherit);
+  margin: var(--rg-rt-mt, 0) var(--rg-rt-mr, 0) var(--rg-rt-mb, 0) var(--rg-rt-ml, 0);
+  padding: var(--rg-rt-pt, 0) var(--rg-rt-pr, 0) var(--rg-rt-pb, 0) var(--rg-rt-pl, 0);
+}
+.w-richtext [data-rg-rt-align] :is(p, h1, h2, h3, h4, h5, h6, li, blockquote, figcaption) {
+  text-align: inherit;
+}
+.w-richtext [data-rg-rt-space] {
+  height: var(--rg-rt-height);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* Figma: 7px square, 1px radius, 15px text inset, 16px item gap. */
+.w-richtext ul[data-rg-rt-square] {
+  list-style: none;
+  padding-inline-start: 0;
+}
+.w-richtext ul[data-rg-rt-square] > li {
+  position: relative;
+  margin-block: 0;
+  padding-inline-start: 0.9375rem;
+}
+.w-richtext ul[data-rg-rt-square] > li + li {
+  margin-block-start: 1rem;
+}
+.w-richtext ul[data-rg-rt-square] > li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(0.6em - 0.21875rem);
+  top: calc(0.5lh - 0.21875rem);
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 0.0625rem;
+  background-color: var(--_primitives---colors--rg-darker, #002f50);
+}
+.w-richtext ul[data-rg-rt-square] > li > p:last-child {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 767px) {
+  .w-richtext [data-rg-rt-text] {
+    font-size: var(--rg-rt-size-mobile, var(--rg-rt-size, inherit));
+  }
+  .w-richtext [data-rg-rt-block] {
+    text-align: var(--rg-rt-align-mobile, var(--rg-rt-align, inherit));
+    margin: var(--rg-rt-mt-mobile, var(--rg-rt-mt, 0)) var(--rg-rt-mr-mobile, var(--rg-rt-mr, 0)) var(--rg-rt-mb-mobile, var(--rg-rt-mb, 0)) var(--rg-rt-ml-mobile, var(--rg-rt-ml, 0));
+    padding: var(--rg-rt-pt-mobile, var(--rg-rt-pt, 0)) var(--rg-rt-pr-mobile, var(--rg-rt-pr, 0)) var(--rg-rt-pb-mobile, var(--rg-rt-pb, 0)) var(--rg-rt-pl-mobile, var(--rg-rt-pl, 0));
+  }
+  .w-richtext [data-rg-rt-align-mobile] :is(p, h1, h2, h3, h4, h5, h6, li, blockquote, figcaption) {
+    text-align: inherit;
+  }
+  .w-richtext [data-rg-rt-space] {
+    height: var(--rg-rt-height-mobile, var(--rg-rt-height));
+  }
+}
